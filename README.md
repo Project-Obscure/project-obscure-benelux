@@ -34,6 +34,6 @@ Users are responsible for ensuring their use complies with applicable laws and r
 
 📞 Contact & Community
 
-Email: projectobscureglobal@proton.me
-Issues: Use GitHub Issues for bug reports and feature requests
-Discussions: Use GitHub Discussions for general questions
+- Email: projectobscureglobal@proton.me
+- Issues: Use GitHub Issues for bug reports and feature requests
+- Discussions: Use GitHub Discussions for general questions
