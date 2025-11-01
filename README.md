@@ -1,7 +1,9 @@
 # project-obscure-benelux
 
 A community-driven collection of parsers for regional applications used in Belgium, Netherlands, and Luxembourg that are not commonly covered by commercial digital forensics tools like Cellebrite UFED, Magnet AXIOM, and others.
-🎯** Project Purpose**
+
+🎯Project Purpose
+
 Commercial forensic tools excel at parsing internationally popular applications (WhatsApp, Facebook, Instagram), but regional and niche apps remain largely unsupported. Project Obscure Benelux focuses on filling this gap for the Benelux region.
 This project is intended for:
 
@@ -11,7 +13,6 @@ This project is intended for:
 - Academic research and education
 - Security professionals conducting authorized investigations
 
-Important: All parsers and information in this repository contain publicly available knowledge intended for legitimate forensic and security purposes only.
 🌍 Why Benelux?
 We're starting with the Benelux region to:
 
