@@ -31,3 +31,9 @@ This project is designed for legal and authorized use only:
 - Security testing on your own devices or with explicit permission
 
 Users are responsible for ensuring their use complies with applicable laws and regulations in their jurisdiction.
+
+📞 Contact & Community
+
+Email: projectobscureglobal@proton.me
+Issues: Use GitHub Issues for bug reports and feature requests
+Discussions: Use GitHub Discussions for general questions
