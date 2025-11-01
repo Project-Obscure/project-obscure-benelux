@@ -38,3 +38,7 @@ Users are responsible for ensuring their use complies with applicable laws and r
 - Email: projectobscureglobal@proton.me
 - Issues: Use GitHub Issues for bug reports and feature requests
 - Discussions: Use GitHub Discussions for general questions
+
+📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
