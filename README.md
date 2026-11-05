@@ -13,6 +13,37 @@ This project is intended for:
 - Academic research and education
 - Security professionals conducting authorized investigations
 
+🧰 One parser, every tool
+
+Each parser is written once as a short `parser.yaml` (which database, which tables, what each column means). From that file, the framework generates:
+
+| Tool | Generated output |
+|---|---|
+| ALEAPP (Android) | module for `scripts/artifacts/` |
+| iLEAPP (iOS) | module for `scripts/artifacts/` |
+| Cellebrite / Inseyets Physical Analyzer | Decoding-scope Python script (can be packaged as `.tplug`), including deleted records |
+| Magnet AXIOM | SQL queries for SQLite custom artifacts (interim) |
+
+```
+pip install -r requirements.txt
+python obscure.py inspect app.db                       # explore an app database
+python obscure.py new BE-AppName                       # start a parser
+python obscure.py run BE-AppName --db app.db           # see what it extracts
+python obscure.py test                                 # test generated parsers for every tool
+python obscure.py build                                # write everything to build/
+```
+
+- [docs/SPEC.md](docs/SPEC.md): the `parser.yaml` format
+- [docs/COLLECTING_TEST_DATA.md](docs/COLLECTING_TEST_DATA.md): getting data from your own test phones
+- [docs/INSTALL.md](docs/INSTALL.md): installing parsers in each tool
+- [docs/TOOLS.md](docs/TOOLS.md): what is verified per tool and how the generators work
+
+📚 Parsers
+
+| Parser | App | Platforms | Status |
+|---|---|---|---|
+| [BE-2dehands](parsers/BE-2dehands) | 2dehands (marketplace) | Android | draft: schema still to be confirmed on a test phone |
+
 🌍 Why Benelux?
 We're starting with the Benelux region to:
 
