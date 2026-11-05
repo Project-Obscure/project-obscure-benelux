@@ -220,8 +220,8 @@ def glob_to_regex(glob):
 
 
 def discover(root):
-    """All parser directories under root/parsers."""
-    base = os.path.join(root, 'parsers')
+    """All parser spec directories under root/specs."""
+    base = os.path.join(root, 'specs')
     if not os.path.isdir(base):
         return []
     return sorted(os.path.join(base, name) for name in os.listdir(base)

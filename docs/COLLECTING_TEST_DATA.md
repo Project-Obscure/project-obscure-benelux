@@ -65,7 +65,7 @@ python obscure.py run BE-AppName --db path/to/app.db
 ## 5. Make test data for the repository
 
 ```
-python obscure.py inspect path/to/app.db --schema > parsers/BE-AppName/tests/android_main.sql
+python obscure.py inspect path/to/app.db --schema > specs/BE-AppName/tests/android_main.sql
 ```
 
 Then edit that file. Keep only the tables the parser uses, and add a handful of **fake** `INSERT` rows that look like what you saw (same value formats, NULLs, edge cases). Then run:

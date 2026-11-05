@@ -10,7 +10,7 @@ All outputs must agree with the reference engine. These checks prove the generat
 
 | Tool | Status | To do |
 |---|---|---|
-| ALEAPP / iLEAPP | Written to the LEAPP "artifacts v2" format (`__artifacts_v2__` + `@artifact_processor`). | Load in a current ALEAPP/iLEAPP release and confirm. If LEAPP has moved to the newer `context` function signature, update `framework/gen_leapp.py`. |
+| ALEAPP / iLEAPP | LEAPP "artifacts v2" format (`__artifacts_v2__` + `@artifact_processor`). Checked by reading the current ALEAPP source (Nov 2026): the plugin loader finds the functions, the 4-argument signature is still supported, and source paths are newline-separated. | Run a real ALEAPP/iLEAPP on a test extraction and check the report. |
 | Cellebrite PA | Uses the API from the Python Scripting Guide (`SQLiteParser`, `ReadTableRecords`, `Chat`, `InstantMessage`, `Party`, `Contact`, `UserAccount`, `Location`, `SearchedItem`, `Note`, `TimeStamp`). | Run once in Physical Analyzer and confirm: models appear, timestamps are UTC, deleted records are marked deleted, and the source highlighting (`MemoryRange`) works. |
 | Magnet AXIOM | Interim: SQL queries + README. | Export an existing SQLite custom artifact from AXIOM (or one from Artifact Exchange) as a reference, then make `framework/gen_axiom.py` write that format directly. |
 

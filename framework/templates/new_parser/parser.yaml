@@ -7,6 +7,8 @@ app:
   description: What this parser extracts.
   author: Your name or handle
   status: draft
+  created: 2026-01-01      # set to today's date
+  updated: 2026-01-01      # bump when you change the parser
   versions_tested: []
 
 sources:

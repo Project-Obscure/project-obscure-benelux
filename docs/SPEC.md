@@ -1,9 +1,9 @@
 # parser.yaml reference
 
-Each parser is a folder in `parsers/` named `<COUNTRY>-<AppName>` (for example `BE-2dehands`, `NL-Tikkie`, `LU-Digicash`):
+Each parser's source is a folder in `specs/` named `<COUNTRY>-<AppName>` (for example `BE-2dehands`, `NL-Tikkie`, `LU-Digicash`):
 
 ```
-parsers/BE-2dehands/
+specs/BE-2dehands/
   parser.yaml          what to read and how to show it
   README.md            app notes, versions tested, known gaps
   tests/
@@ -15,10 +15,10 @@ The same `parser.yaml` is turned into:
 
 | Tool | Output | How it reads the data |
 |---|---|---|
-| ALEAPP | `build/aleapp/scripts/artifacts/obscure_<ID>.py` | SQL over `sqlite3` |
-| iLEAPP | `build/ileapp/scripts/artifacts/obscure_<ID>.py` | SQL over `sqlite3` |
-| Cellebrite Physical Analyzer | `build/cellebrite/<ID>.py` | `SQLiteParser` tables, **including deleted records** |
-| Magnet AXIOM | `build/axiom/<ID>/*.sql` + README | SQL (interim, see [TOOLS.md](TOOLS.md)) |
+| ALEAPP | `ALEAPP/Parsers/obscure_<ID>.py` | SQL over `sqlite3` |
+| iLEAPP | `iLEAPP/Parsers/obscure_<ID>.py` | SQL over `sqlite3` |
+| Cellebrite Physical Analyzer | `Cellebrite Physical Analyser/Parsers/<ID>.py` | `SQLiteParser` tables, **including deleted records** |
+| Magnet AXIOM | `Magnet AXIOM/Parsers/<ID>/*.sql` + README | SQL (interim, see [TOOLS.md](TOOLS.md)) |
 
 Physical Analyzer's `SQLiteParser` reads tables directly and can't run SQL. That's why a spec describes **one main table plus optional joins**, not free-form SQL. Every tool can then do exactly the same thing.
 
@@ -33,6 +33,7 @@ Physical Analyzer's `SQLiteParser` reads tables directly and can't run SQL. That
 | `category` | no | LEAPP report category. Defaults to `name`. |
 | `description` | no | |
 | `status` | no | `draft` (not checked on real data) or `verified`. |
+| `created`, `updated` | no | Dates (YYYY-MM-DD) shown in the ALEAPP/iLEAPP header. Bump `updated` when you change the parser. |
 | `versions_tested` | no | List of `{platform, app_version, os}` you verified on a real device. |
 
 ## `sources`

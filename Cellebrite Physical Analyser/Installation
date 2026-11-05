@@ -1,4 +1,0 @@
-How to install Parsers
-
-See docs/INSTALL.md in the repository root. Cellebrite scripts are generated
-from parsers/<ID>/parser.yaml with: python obscure.py build

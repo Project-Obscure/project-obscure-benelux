@@ -14,6 +14,8 @@ app:
   description: Chats, saved searches, favourites and account details from the 2dehands app.
   author: Project Obscure
   status: draft
+  created: 2026-11-05
+  updated: 2026-11-05
   versions_tested: []          # e.g. [{platform: android, app_version: "x.y.z", os: "Android 14"}]
 
 sources:
