@@ -1,0 +1,196 @@
+{
+  "reference": {
+    "messages": [
+      [
+        "2024-11-05 09:46:40 UTC",
+        "c-100",
+        "Gazelle stadsfiets 28 inch",
+        "Test Verkoper",
+        "Test Gebruiker",
+        "Yes",
+        "Is de fiets nog beschikbaar?",
+        "Yes"
+      ],
+      [
+        "2024-11-05 09:52:40 UTC",
+        "c-100",
+        "Gazelle stadsfiets 28 inch",
+        "Test Verkoper",
+        "Test Verkoper",
+        "No",
+        "Ja, je kan zaterdag komen kijken in Gent.",
+        "Yes"
+      ],
+      [
+        "2024-11-06 13:33:20 UTC",
+        "c-200",
+        "PlayStation 5 + 2 controllers",
+        "Test Koper",
+        "Test Koper",
+        "No",
+        "Wat is je laagste prijs?",
+        "No"
+      ],
+      [
+        "2024-11-07 03:26:40 UTC",
+        "c-999",
+        "",
+        "",
+        "",
+        "Yes",
+        "Bericht in gesprek zonder metadata",
+        ""
+      ]
+    ],
+    "saved_searches": [
+      [
+        "2024-11-04 06:00:00 UTC",
+        "bakfiets",
+        "Fietsen",
+        "9000"
+      ],
+      [
+        "2024-11-04 08:46:40 UTC",
+        "iphone 15",
+        "",
+        ""
+      ]
+    ],
+    "favourites": [
+      [
+        "",
+        "Eettafel eik",
+        "a-2",
+        "",
+        "",
+        ""
+      ],
+      [
+        "2024-11-04 19:53:20 UTC",
+        "Gazelle stadsfiets 28 inch",
+        "a-1",
+        "15000",
+        "Test Verkoper",
+        "https://www.2dehands.be/v/a-1"
+      ]
+    ],
+    "account": [
+      [
+        "Test Gebruiker",
+        "testgebruiker@example.com",
+        "u-42",
+        "2023-11-14 22:13:20 UTC",
+        "Private"
+      ]
+    ]
+  },
+  "cellebrite": [
+    {
+      "model": "Chat",
+      "Id": "c-100",
+      "Messages": [
+        {
+          "model": "InstantMessage",
+          "Body": "Is de fiets nog beschikbaar?",
+          "From": "From: Test Gebruiker",
+          "SourceApplication": "2dehands",
+          "Subject": "Gazelle stadsfiets 28 inch",
+          "TimeStamp": "2024-11-05 09:46:40 UTC",
+          "To": [
+            "To: Test Verkoper"
+          ]
+        },
+        {
+          "model": "InstantMessage",
+          "Body": "Ja, je kan zaterdag komen kijken in Gent.",
+          "From": "From: Test Verkoper",
+          "SourceApplication": "2dehands",
+          "Subject": "Gazelle stadsfiets 28 inch",
+          "TimeStamp": "2024-11-05 09:52:40 UTC",
+          "To": [
+            "To: Device owner"
+          ]
+        }
+      ],
+      "Source": "2dehands"
+    },
+    {
+      "model": "Chat",
+      "Id": "c-200",
+      "Messages": [
+        {
+          "model": "InstantMessage",
+          "Body": "Wat is je laagste prijs?",
+          "From": "From: Test Koper",
+          "SourceApplication": "2dehands",
+          "Subject": "PlayStation 5 + 2 controllers",
+          "TimeStamp": "2024-11-06 13:33:20 UTC",
+          "To": [
+            "To: Device owner"
+          ]
+        }
+      ],
+      "Source": "2dehands"
+    },
+    {
+      "model": "Chat",
+      "Id": "c-999",
+      "Messages": [
+        {
+          "model": "InstantMessage",
+          "Body": "Bericht in gesprek zonder metadata",
+          "From": "From: Device owner",
+          "SourceApplication": "2dehands",
+          "TimeStamp": "2024-11-07 03:26:40 UTC"
+        }
+      ],
+      "Source": "2dehands"
+    },
+    {
+      "model": "SearchedItem",
+      "Source": "2dehands",
+      "TimeStamp": "2024-11-04 06:00:00 UTC",
+      "Value": "bakfiets"
+    },
+    {
+      "model": "SearchedItem",
+      "Source": "2dehands",
+      "TimeStamp": "2024-11-04 08:46:40 UTC",
+      "Value": "iphone 15"
+    },
+    {
+      "model": "Note",
+      "Body": "Added: 2024-11-04 19:53:20 UTC\nAd title: Gazelle stadsfiets 28 inch\nAd ID: a-1\nPrice (cents): 15000\nSeller: Test Verkoper\nURL: https://www.2dehands.be/v/a-1",
+      "Creation": "2024-11-04 19:53:20 UTC",
+      "Folder": "Favourite ads",
+      "Source": "2dehands",
+      "Title": "Gazelle stadsfiets 28 inch"
+    },
+    {
+      "model": "Note",
+      "Body": "Ad title: Eettafel eik\nAd ID: a-2",
+      "Folder": "Favourite ads",
+      "Source": "2dehands",
+      "Title": "Eettafel eik"
+    },
+    {
+      "model": "UserAccount",
+      "Entries": [
+        {
+          "model": "EmailAddress",
+          "Value": "testgebruiker@example.com"
+        },
+        {
+          "model": "UserID",
+          "Value": "u-42"
+        }
+      ],
+      "Name": "Test Gebruiker",
+      "Notes": [
+        "Account type: Private"
+      ],
+      "ServiceType": "2dehands",
+      "TimeCreated": "2023-11-14 22:13:20 UTC"
+    }
+  ]
+}

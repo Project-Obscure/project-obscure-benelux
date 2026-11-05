@@ -1,0 +1,86 @@
+# 2dehands (Belgian classifieds / marketplace)
+#
+# STATUS: DRAFT. The package name, database name, tables and columns below are
+# PLACEHOLDERS that show the format. Replace them with what you find in a real
+# extraction from a test phone (see docs/COLLECTING_TEST_DATA.md):
+#   python obscure.py inspect <path-to-db>
+# then update this file and tests/android_main.sql to match.
+
+app:
+  id: BE-2dehands
+  name: 2dehands
+  country: BE
+  category: Marketplace
+  description: Chats, saved searches, favourites and account details from the 2dehands app.
+  author: Project Obscure
+  status: draft
+  created: 2026-11-05
+  updated: 2026-11-05
+  versions_tested: []          # e.g. [{platform: android, app_version: "x.y.z", os: "Android 14"}]
+
+sources:
+  android_main:
+    platform: android
+    # TODO: confirm the package name (adb shell pm list packages | findstr 2dehands)
+    # and the database file name on a test phone.
+    path: "*/data/data/be.twodehands.android/databases/app.db"
+
+artifacts:
+  - id: messages
+    name: Chat messages
+    description: Messages exchanged with buyers/sellers, with the ad they belong to.
+    type: chat
+    source: android_main
+    table: messages
+    order_by: sent_at
+    joins:
+      - table: conversations
+        local: conversation_id
+        foreign: id
+    fields:
+      - {column: sent_at, label: Sent, format: unix_ms, role: timestamp}
+      - {column: conversation_id, label: Conversation ID, role: chat_id}
+      - {column: conversations.ad_title, label: Ad title, role: subject}
+      - {column: conversations.other_party_name, label: Other party, role: peer}
+      - {column: sender_name, label: Sender, role: from}
+      - {column: is_outgoing, label: Outgoing, format: bool, role: outgoing}
+      - {column: body, label: Message, role: body}
+      - {column: is_read, label: Read, format: bool}
+
+  - id: saved_searches
+    name: Saved searches
+    type: search
+    source: android_main
+    table: saved_searches
+    order_by: created_at
+    fields:
+      - {column: created_at, label: Created, format: unix_ms, role: timestamp}
+      - {column: query, label: Search term, role: value}
+      - {column: category, label: Category}
+      - {column: postcode, label: Postcode}
+
+  - id: favourites
+    name: Favourite ads
+    type: generic
+    source: android_main
+    table: favourites
+    order_by: added_at
+    fields:
+      - {column: added_at, label: Added, format: unix_ms, role: timestamp}
+      - {column: title, label: Ad title, role: title}
+      - {column: ad_id, label: Ad ID}
+      - {column: price_cents, label: Price (cents), format: int}
+      - {column: seller_name, label: Seller}
+      - {column: url, label: URL}
+
+  - id: account
+    name: Logged-in account
+    type: account
+    source: android_main
+    table: user
+    fields:
+      - {column: display_name, label: Name, role: name}
+      - {column: email, label: Email, role: email}
+      - {column: user_id, label: User ID, role: user_id}
+      - {column: registered_at, label: Registered, format: unix_s, role: created}
+      - {column: account_type, label: Account type, values: {0: Private, 1: Business}}

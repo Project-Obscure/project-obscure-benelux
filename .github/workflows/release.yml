@@ -1,0 +1,47 @@
+name: Release
+
+# Push a tag like v0.1.0 on main to publish one zip per forensic tool.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the tool folders are up to date
+        run: |
+          pip install -r requirements.txt
+          python obscure.py test
+          python obscure.py build --check
+      - name: Build one zip per tool
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          mkdir dist
+          pack() {  # pack <folder> <zip label>
+            stage="stage/project-obscure-$2"
+            mkdir -p "$stage"
+            cp -r "$1" "$stage/"
+            cp install.py LICENSE "$stage/"
+            (cd stage && zip -qr "../dist/project-obscure-$2-$tag.zip" "project-obscure-$2")
+          }
+          pack "ALEAPP" "ALEAPP"
+          pack "iLEAPP" "iLEAPP"
+          pack "Cellebrite Physical Analyser" "Cellebrite-PA"
+          pack "Magnet AXIOM" "Magnet-AXIOM"
+          ls -l dist
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.zip \
+            --title "Project Obscure Benelux $GITHUB_REF_NAME" \
+            --generate-notes

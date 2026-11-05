@@ -1,0 +1,33 @@
+# See docs/SPEC.md for every option.
+app:
+  id: XX-AppName
+  name: AppName
+  country: XX
+  category: Messaging
+  description: What this parser extracts.
+  author: Your name or handle
+  status: draft
+  created: 2026-01-01      # set to today's date
+  updated: 2026-01-01      # bump when you change the parser
+  versions_tested: []
+
+sources:
+  android_main:
+    platform: android
+    path: "*/data/data/com.example.app/databases/main.db"
+  # ios_main:
+  #   platform: ios
+  #   path: "*/mobile/Containers/Data/Application/*/Library/Application Support/main.sqlite"
+
+artifacts:
+  - id: messages
+    name: Messages
+    type: chat
+    source: android_main
+    table: messages
+    order_by: timestamp
+    fields:
+      - {column: timestamp, label: Timestamp, format: unix_ms, role: timestamp}
+      - {column: thread_id, label: Thread, role: chat_id}
+      - {column: sender, label: Sender, role: from}
+      - {column: body, label: Message, role: body}
